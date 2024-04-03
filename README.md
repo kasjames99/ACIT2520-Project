@@ -13,3 +13,5 @@ I also watched the following videos:
 ### Markus Matsumoto:
 
 I worked on the following tasks:
+1. Update a reminder: This updates a reminder 
+2. watched the first 2 starter code videos. 
