@@ -42,6 +42,14 @@ let remindersController = {
 
   update: (req, res) => {
     // implementation here 👈
+    database.cindy.reminders.forEach(reminder => {
+      if (reminder.id === Number(req.params.id)) {
+        reminder.title = req.body.title;
+        reminder.description = req.body.description;
+        reminder.completed = Boolean(req.body.completed)
+      } 
+    })
+    res.redirect("/reminders")
   },
 
   delete: (req, res) => {
