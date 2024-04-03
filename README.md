@@ -1,7 +1,9 @@
 Breakdown of work:
 
-April 4th (First Sprint Complete)
-Kasl James:
+## April 4th (First Sprint Complete)
+
+### Kasl James:
+
 I worked on the following tasks:
 1. Delete a reminder - This task is responsible for deleting reminders
 
