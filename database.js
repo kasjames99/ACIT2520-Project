@@ -1,8 +1,9 @@
-const database = {
-  users: {
-    cindy: {
+let database = {
+  users: [
+    {
+      id: 1,
       email: "cindy@example.com",
-      password: "cindy123",
+      password: "password123",
       reminders: [
         {
           id: 1,
@@ -12,50 +13,36 @@ const database = {
         },
       ],
     },
-    george: {
-      email: "george@example.com",
-      password: "george123",
-      reminders: [
-        {
-          id: 1,
-          title: "Ikea",
-          description: "Ikea stuff",
-          completed: false,
-        },
-      ],
-    },
-    dan: {
-      email: "dan@example.com",
-      password: "dan123",
-      reminders: [
-        {
-          id: 1,
-          title: "Costco",
-          description: "Costco stuff",
-          completed: false,
-        },
-      ],
-    },
-  },
+  ],
 };
 
-const userModel = {
-  findOne: (email) => {
-    for (const userKey in database.users) {
-      const user = database.users[userKey];
-      if (user.email === email) {
-        return user;
-      }
-    }
-    throw new Error(`Couldn't find user with email: ${email}`);
+const Database = [
+  {
+    id: 1,
+    name: "Jimmy Smith",
+    email: "jimmy123@gmail.com",
+    password: "jimmy123!",
+    reminders: [{
+      id: 1,
+      title: "Grocery shopping",
+      description: "Buy milk and bread from Safeway",
+      completed: false,
+    },]
   },
-  findById: (id) => {
-    const user = database.find((user) => user.id === id);
-    if (user) {
-      return user;
-    }
-    throw new Error(`Couldn't find user with id: ${id}`);
+  {
+    id: 2,
+    name: "Johnny Doe",
+    email: "johnny123@gmail.com",
+    password: "johnny123!",
+    reminders: []
   },
-};
+  {
+    id: 3,
+    name: "Jonathan Chen",
+    email: "jonathan123@gmail.com",
+    password: "jonathan123!",
+    reminders: []
+  },
+];
 
-module.exports = { database, userModel };
+module.exports = Database;

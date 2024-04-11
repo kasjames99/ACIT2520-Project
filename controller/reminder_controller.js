@@ -1,8 +1,14 @@
 let database = require("../database");
+let authController = require("./auth_controller")
 
 let remindersController = {
   list: (req, res) => {
-    res.render("reminder/index", { reminders: database.cindy.reminders });
+    // if (!req.session.user) {
+    //   // If user is not logged in, redirect to login page
+    //   return res.redirect("/login");
+    // }
+    console.log(req.user);
+    res.render("reminder/index", { reminders: req.user.reminders })
   },
 
   new: (req, res) => {
@@ -64,7 +70,6 @@ let remindersController = {
       database.cindy.reminders.splice(reminderIndex, 1);
       res.redirect("/reminders");
     }
-    // implementation here 👈
   },
 };
 
