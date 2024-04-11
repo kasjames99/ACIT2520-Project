@@ -56,7 +56,6 @@ let remindersController = {
       database.cindy.reminders.splice(reminderIndex, 1);
       res.redirect("/reminders");
     }
-    // implementation here 👈
   },
 };
 
