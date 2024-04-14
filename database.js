@@ -4,6 +4,7 @@ let database = {
       id: 1,
       email: "cindy@example.com",
       password: "password123",
+      role: "normal",
       reminders: [
         {
           id: 1,
@@ -22,6 +23,7 @@ const Database = [
     name: "Jimmy Smith",
     email: "jimmy123@gmail.com",
     password: "jimmy123!",
+    role: "normal",
     reminders: [{
       id: 1,
       title: "Grocery shopping",
@@ -34,6 +36,7 @@ const Database = [
     name: "Johnny Doe",
     email: "johnny123@gmail.com",
     password: "johnny123!",
+    role: "normal",
     reminders: []
   },
   {
@@ -41,6 +44,7 @@ const Database = [
     name: "Jonathan Chen",
     email: "jonathan123@gmail.com",
     password: "jonathan123!",
+    role: "admin",
     reminders: []
   },
 ];

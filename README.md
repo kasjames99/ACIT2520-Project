@@ -31,3 +31,11 @@ I also re-watched the following videos:
 
 I also spent the following amount of time attempting to understand and restructure this code:
 1. 10-15 hours
+
+### April 13th (second sprint)
+### Markus
+
+I worked on 
+1. updating the code to accept the main database
+2. differentiating normal and admin users
+3. Tried to make the admin destroy session
