@@ -14,7 +14,7 @@ let authController = {
     passport.authenticate("local", {
       successRedirect: "/reminders",
       failureRedirect: "/login",
-    }) (req, res )
+    }) (req, res)
   },
 
   registerSubmit: (req, res) => {

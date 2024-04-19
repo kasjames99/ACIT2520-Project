@@ -1,4 +1,4 @@
-let database = require("../models/userModel").database;
+let database = require("../database");
 let authController = require("./auth_controller")
 
 let remindersController = {
@@ -7,12 +7,8 @@ let remindersController = {
     //   // If user is not logged in, redirect to login page
     //   return res.redirect("/login");
     // }
-    if (req.user in database) {
-      console.log(req.user);
-      res.render("reminder/index", { reminders: req.user.reminders })
-    } else {
-      res.redirect("/auth/login")
-    }
+    console.log(req.user);
+    res.render("reminder/index", { reminders: req.user.reminders })
   },
 
   new: (req, res) => {
@@ -20,39 +16,56 @@ let remindersController = {
   },
 
   listOne: (req, res) => {
-    let reminderToFind = req.params.id; 
-    let searchResult = req.user.reminders.find(function (reminder) {
-      return reminder.id == reminderToFind;
-    });
-    if (searchResult != undefined) {
+    let userId = req.user.id;
+  
+    let user = database.find(user => user.id === userId);
+  
+    if (user) {
+      let searchResult = user.reminders.find(reminder => reminder.id == req.params.id);
+      
       res.render("reminder/single-reminder", { reminderItem: searchResult });
-    } else {
-      res.render("reminder/index", { reminders: database.cindy.reminders });
-    }
+    } 
   },
 
   create: (req, res) => {
     let reminder = {
-      id: req.user.reminders.length + 1,
+      id: database.cindy.reminders.length + 1,
       title: req.body.title,
       description: req.body.description,
       completed: false,
     };
-    req.user.reminders.push(reminder);
+    database.cindy.reminders.push(reminder);
     res.redirect("/reminders");
   },
 
   edit: (req, res) => {
-    let reminderToFind = req.params.id;
-    let searchResult = req.user.reminders.find(function (reminder) {
-      return reminder.id == reminderToFind;
-    });
-    res.render("reminder/edit", { reminderItem: searchResult });
+    let userId = req.user.id;
+  
+    // Find the user in the database
+    let user = database.find(user => user.id === userId);
+  
+    // Check if the user is found
+    if (user) {
+      // Find the reminder with the specified ID in the user's reminders
+      let reminderToEdit = user.reminders.find(reminder => reminder.id == req.params.id);
+  
+      // Check if the reminder to edit is found
+      if (reminderToEdit) {
+        // If the reminder is found, render the edit page with the reminder data
+        res.render("reminder/edit", { reminderItem: reminderToEdit });
+      } else {
+        // If the reminder is not found, render an error page or redirect to a different route
+        res.status(404).send("Reminder not found");
+      }
+    } else {
+      // If the user is not found, render an error page or redirect to a different route
+      res.status(404).send("User not found");
+    }
   },
 
   update: (req, res) => {
     // implementation here 👈
-    req.user.reminders.forEach(reminder => {
+    database.cindy.reminders.forEach(reminder => {
       if (reminder.id === Number(req.params.id)) {
         reminder.title = req.body.title;
         reminder.description = req.body.description;
@@ -63,31 +76,22 @@ let remindersController = {
   },
 
   delete: (req, res) => {
-    let reminderToDelete = req.params.id;
+  let userId = req.user.id;
 
-    let reminderIndex = req.user.reminders.findIndex(function(reminder) {
-      return reminder.id == reminderToDelete;
-    })
+  let user = database.find(user => user.id === userId);
+
+  if (user) {
+    let reminderIndex = user.reminders.findIndex(reminder => reminder.id == req.params.id);
 
     if (reminderIndex !== -1) {
+      user.reminders.splice(reminderIndex, 1);
 
-      req.user.reminders.splice(reminderIndex, 1);
       res.redirect("/reminders");
     }
-  },
-  destroy: (req, res) => {
-    if (req.user.role === "admin") {
-      req.session.destroy((err) => {
-        if (err) {
-          console.log(err)
-          res.redirect("/reminders")
-        }
-        res.redirect("/login")
-      })
-
-    } else {
-      res.redirect("/login")
-    }
   }
+  //I beleive this is deleting the reminder, but isn't stopping it from showing up in the current session when populating
+  //all reminders
+},
 };
+
 module.exports = remindersController;

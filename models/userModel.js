@@ -4,23 +4,36 @@ const database = [
     name: "Jimmy Smith",
     email: "jimmy123@gmail.com",
     password: "jimmy123!",
-    role: "normal",
-    reminders: []
+    reminders: [{
+      id: 1,
+      title: "Grocery shopping",
+      description: "Buy milk and bread from Safeway",
+      completed: false,
+    },
+    {
+      id: 2,
+      title: "Test populated reminder",
+      description: "test",
+      completed: false,
+    },]
   },
   {
     id: 2,
     name: "Johnny Doe",
     email: "johnny123@gmail.com",
     password: "johnny123!",
-    role: "admin",
-    reminders: []
+    reminders: [{
+      id: 1,
+      title: "Johnny Doe reminder",
+      description: "Shouldn't see this from other users",
+      completed: false,
+    },]
   },
   {
     id: 3,
     name: "Jonathan Chen",
     email: "jonathan123@gmail.com",
     password: "jonathan123!",
-    role: "normal",
     reminders: []
   },
 ];
