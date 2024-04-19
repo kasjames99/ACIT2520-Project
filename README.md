@@ -1,3 +1,4 @@
+Breakdown of work:
 ## April 4th (First Sprint Complete)
 
 ### Kasl James:
@@ -21,8 +22,8 @@ I worked on the following tasks:
 ### Kasl James:
 
 I worked on the following tasks:
-1. Log in a user using email and password.
-2. Authenticated users should not be able to see/change delete other users reminders.
+1. Log in a user using email and password
+2. Authenticated users should not be able to see/change delete other users reminders
 3. Re-structruing reminderApp file and code locations
 
 I also re-watched the following videos:
@@ -32,7 +33,15 @@ I also re-watched the following videos:
 I also spent the following amount of time attempting to understand and restructure this code:
 1. 10-15 hours
 
-### April 13th (second sprint)
+### April 18th (Second sprint)
+
+### Kasl James:
+
+I worked on the following tasks:
+1. Populating a user's reminders based on login
+2. Not being able to see other users' reminders
+3. A user only being able to edit and delete their own reminders
+
 ### Markus
 
 I worked on 

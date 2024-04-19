@@ -1,5 +1,4 @@
 let database = require("../database");
-const passport = require("passport");
 
 let authController = {
   login: (req, res) => {
@@ -11,10 +10,7 @@ let authController = {
   },
 
   loginSubmit: (req, res) => {
-    passport.authenticate("local", {
-      successRedirect: "/reminders",
-      failureRedirect: "/login",
-    }) (req, res )
+
   },
 
   registerSubmit: (req, res) => {
