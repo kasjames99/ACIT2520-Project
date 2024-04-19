@@ -41,6 +41,7 @@ I worked on the following tasks:
 1. Populating a user's reminders based on login
 2. Not being able to see other users' reminders
 3. A user only being able to edit and delete their own reminders
+4. Ran out of time attempting to fix various issues with the above
 
 ### Markus
 

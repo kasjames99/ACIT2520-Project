@@ -14,7 +14,7 @@ const database = [
       id: 2,
       title: "Test populated reminder",
       description: "test",
-      completed: true,
+      completed: false,
     },]
   },
   {
