@@ -33,7 +33,7 @@ I also re-watched the following videos:
 I also spent the following amount of time attempting to understand and restructure this code:
 1. 10-15 hours
 
-### April 18th (Second sprint)
+## April 18th (Second sprint)
 
 ### Kasl James:
 
@@ -41,7 +41,8 @@ I worked on the following tasks:
 1. Populating a user's reminders based on login
 2. Not being able to see other users' reminders
 3. A user only being able to edit and delete their own reminders
-4. Ran out of time attempting to fix various issues with the above
+4. Redirecting a logged out user to the login screen
+5. Ran out of time attempting to fix various issues with the above
 
 ### Markus
 
@@ -54,4 +55,4 @@ I worked on
 
 I worked on 
 1. adding the session 
-2. tried to make the admin destroy the session 
+2. admin destroy the session 

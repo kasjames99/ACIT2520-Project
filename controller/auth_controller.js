@@ -1,5 +1,6 @@
 let database = require("../database");
 
+
 let authController = {
   login: (req, res) => {
     res.render("auth/login");
@@ -9,12 +10,17 @@ let authController = {
     res.render("auth/register");
   },
 
-  loginSubmit: (req, res) => {
+  loginSubmit: (req, res, next) => {
+    passport.authenticate("local", {
+      successRedirect: "/reminders",
+      failureRedirect: "/auth/login",
+    })(req, res, next)
   },
 
   registerSubmit: (req, res) => {
     // implement later
   },
 };
+
 
 module.exports = authController;

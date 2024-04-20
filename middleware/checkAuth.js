@@ -9,6 +9,12 @@ module.exports = {
     if (!req.isAuthenticated()) {
       return next();
     }
-    res.redirect("/dashboard");
+    res.redirect("/reminders");
+  },
+  checkAdminAuth: function (req, res, next) {
+    if (req.isAuthenticated() && req.user.isAdmin) {
+      return next();
+    }
+    return res.redirect("/");
   },
 };
