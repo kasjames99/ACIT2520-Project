@@ -55,4 +55,6 @@ I worked on
 
 I worked on 
 1. adding the session 
-2. admin destroy the session 
+2. admin destroy the session
+i don't know where to get the error fixed when running the code
+but im pretty sure that it should work nonetheless. 
